@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nexora | خرید هوشمند</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -17,9 +19,14 @@
   --blue2:#60a5fa;
   --dark:#101828;
   --gray:#667085;
-  --light:#f6f8fb;
-  --border:#e8edf3;
+  --light:#f6f8fc;
+  --border:#e7ecf3;
   --white:#fff;
+  --shadow:0 20px 60px rgba(16,24,40,.07);
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -29,7 +36,8 @@ body{
   overflow-x:hidden;
 }
 
-button,input{
+button,
+input{
   font:inherit;
 }
 
@@ -48,23 +56,24 @@ button{
 header{
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:1000;
   background:rgba(255,255,255,.88);
-  backdrop-filter:blur(20px);
+  backdrop-filter:blur(24px);
   border-bottom:1px solid rgba(230,235,242,.8);
 }
 
 .nav{
-  height:76px;
+  min-height:78px;
   display:flex;
   align-items:center;
-  gap:22px;
+  gap:20px;
 }
 
 .logo{
-  font-size:27px;
+  font-size:29px;
   font-weight:900;
-  letter-spacing:-1px;
+  letter-spacing:-1.5px;
+  white-space:nowrap;
 }
 
 .logo span{
@@ -78,27 +87,27 @@ header{
 
 .search input{
   width:100%;
-  height:48px;
+  height:50px;
   border:1px solid var(--border);
   background:#f7f9fc;
-  border-radius:17px;
+  border-radius:18px;
   outline:none;
-  padding:0 50px 0 18px;
+  padding:0 52px 0 20px;
   color:var(--dark);
   transition:.25s;
 }
 
 .search input:focus{
   background:white;
-  border-color:#b7d1ff;
-  box-shadow:0 0 0 4px #eaf2ff;
+  border-color:#b9d1ff;
+  box-shadow:0 0 0 5px #edf4ff;
 }
 
 .search-icon{
   position:absolute;
-  right:17px;
-  top:13px;
-  font-size:20px;
+  right:18px;
+  top:12px;
+  font-size:22px;
 }
 
 .nav-btns{
@@ -107,59 +116,79 @@ header{
 }
 
 .nav-btn{
-  width:45px;
-  height:45px;
-  border-radius:15px;
+  width:47px;
+  height:47px;
+  border-radius:16px;
   background:white;
   border:1px solid var(--border);
-  font-size:20px;
-  transition:.2s;
+  font-size:21px;
+  transition:.25s;
+  position:relative;
 }
 
 .nav-btn:hover{
-  transform:translateY(-2px);
-  border-color:#c9dcff;
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(16,24,40,.08);
+}
+
+.cart-count{
+  position:absolute;
+  top:-5px;
+  left:-5px;
+  min-width:18px;
+  height:18px;
+  padding:0 5px;
+  border-radius:20px;
+  background:var(--blue);
+  color:white;
+  font-size:10px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
 }
 
 /* HERO */
 
 .hero{
   margin-top:28px;
-  min-height:420px;
-  border-radius:32px;
+  min-height:475px;
+  border-radius:36px;
   overflow:hidden;
   position:relative;
   background:
-    radial-gradient(circle at 80% 30%,rgba(96,165,250,.30),transparent 28%),
-    linear-gradient(135deg,#ffffff,#eef5ff);
-  border:1px solid #e6edf7;
+    radial-gradient(circle at 75% 20%,rgba(96,165,250,.28),transparent 30%),
+    radial-gradient(circle at 15% 90%,rgba(37,99,235,.10),transparent 32%),
+    linear-gradient(135deg,#fff,#eef5ff);
+  border:1px solid #e4ebf5;
   display:flex;
   align-items:center;
-  padding:55px;
+  padding:60px;
+  box-shadow:var(--shadow);
 }
 
 .hero-content{
-  max-width:590px;
+  max-width:620px;
   position:relative;
-  z-index:2;
+  z-index:3;
 }
 
 .badge{
   display:inline-flex;
-  padding:8px 14px;
+  padding:9px 15px;
   border-radius:999px;
   background:#e9f2ff;
-  color:#2563eb;
+  color:var(--blue);
   font-size:13px;
-  font-weight:700;
-  margin-bottom:18px;
+  font-weight:800;
+  margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:clamp(38px,6vw,70px);
-  line-height:1.05;
-  letter-spacing:-3px;
-  margin-bottom:20px;
+  font-size:clamp(44px,6vw,74px);
+  line-height:1.02;
+  letter-spacing:-4px;
+  margin-bottom:22px;
 }
 
 .hero h1 span{
@@ -169,109 +198,120 @@ header{
 .hero p{
   color:var(--gray);
   font-size:17px;
-  line-height:1.9;
-  max-width:510px;
+  line-height:2;
+  max-width:530px;
 }
 
 .hero-actions{
   display:flex;
   gap:12px;
-  margin-top:28px;
+  margin-top:30px;
+}
+
+.primary,
+.secondary{
+  padding:15px 24px;
+  border-radius:17px;
+  font-weight:800;
+  transition:.25s;
 }
 
 .primary{
   background:var(--dark);
   color:white;
-  padding:14px 24px;
-  border-radius:15px;
-  font-weight:700;
-  transition:.25s;
 }
 
 .primary:hover{
   transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(16,24,40,.16);
+  box-shadow:0 15px 35px rgba(16,24,40,.18);
 }
 
 .secondary{
   background:white;
   color:var(--dark);
   border:1px solid var(--border);
-  padding:14px 24px;
-  border-radius:15px;
-  font-weight:700;
+}
+
+.secondary:hover{
+  transform:translateY(-3px);
 }
 
 .hero-orb{
   position:absolute;
-  left:7%;
-  width:300px;
-  height:300px;
+  left:5%;
+  bottom:-110px;
+  width:390px;
+  height:390px;
   border-radius:50%;
-  background:linear-gradient(135deg,#dbeafe,#fff);
+  background:
+    radial-gradient(circle at 35% 30%,#fff,#dbeafe 65%,#c7dcff);
   box-shadow:
-    inset -30px -30px 70px rgba(37,99,235,.08),
-    0 30px 80px rgba(37,99,235,.10);
+    inset -40px -40px 90px rgba(37,99,235,.10),
+    0 30px 100px rgba(37,99,235,.12);
 }
 
-/* CATEGORIES */
+/* SECTION */
 
 .section{
-  margin-top:55px;
+  margin-top:65px;
 }
 
 .section-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
 
 .section-head h2{
-  font-size:27px;
-  letter-spacing:-1px;
+  font-size:30px;
+  letter-spacing:-1.5px;
 }
 
 .section-head a{
   color:var(--blue);
   font-size:14px;
-  font-weight:700;
+  font-weight:800;
+  text-decoration:none;
 }
+
+/* CATEGORIES */
 
 .categories{
   display:grid;
   grid-template-columns:repeat(6,1fr);
-  gap:13px;
+  gap:14px;
 }
 
 .category{
   background:white;
   border:1px solid var(--border);
-  border-radius:21px;
-  padding:22px 10px;
+  border-radius:25px;
+  padding:23px 10px;
   text-align:center;
-  transition:.25s;
+  transition:.3s;
 }
 
 .category:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px rgba(16,24,40,.07);
+  transform:translateY(-7px);
+  box-shadow:var(--shadow);
+  border-color:#d4e3ff;
 }
 
 .category .icon{
-  width:52px;
-  height:52px;
-  border-radius:17px;
-  background:#f1f6ff;
+  width:58px;
+  height:58px;
+  border-radius:19px;
+  background:#f0f5ff;
   display:grid;
   place-items:center;
-  font-size:25px;
-  margin:auto auto 12px;
+  font-size:28px;
+  margin:auto auto 13px;
 }
 
 .category span{
-  font-size:13px;
-  font-weight:700;
+  font-size:14px;
+  font-weight:800;
 }
 
 /* PRODUCTS */
@@ -279,107 +319,124 @@ header{
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:17px;
+  gap:18px;
 }
 
 .product{
   background:white;
   border:1px solid var(--border);
-  border-radius:24px;
+  border-radius:27px;
   padding:13px;
   transition:.3s;
-  position:relative;
-}
-
-.product:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 45px rgba(16,24,40,.08);
-}
-
-.product-image{
-  height:210px;
-  border-radius:18px;
-  background:linear-gradient(145deg,#f3f6fa,#e9eef5);
-  display:grid;
-  place-items:center;
-  font-size:85px;
   position:relative;
   overflow:hidden;
 }
 
+.product:hover{
+  transform:translateY(-7px);
+  box-shadow:0 25px 60px rgba(16,24,40,.09);
+}
+
+.product-image{
+  height:230px;
+  border-radius:21px;
+  background:linear-gradient(145deg,#f4f7fb,#e8eef7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+
+.product-image img{
+  width:82%;
+  height:82%;
+  object-fit:contain;
+  mix-blend-mode:multiply;
+  transition:.35s;
+}
+
+.product:hover .product-image img{
+  transform:scale(1.06);
+}
+
 .favorite{
   position:absolute;
-  top:10px;
-  left:10px;
-  width:35px;
-  height:35px;
-  border-radius:12px;
-  background:white;
-  box-shadow:0 5px 15px rgba(0,0,0,.06);
+  top:11px;
+  left:11px;
+  width:39px;
+  height:39px;
+  border-radius:14px;
+  background:rgba(255,255,255,.95);
+  box-shadow:0 6px 20px rgba(0,0,0,.06);
+  font-size:20px;
+  z-index:3;
+}
+
+.favorite.active{
+  color:#2563eb;
 }
 
 .product-info{
-  padding:15px 4px 5px;
+  padding:17px 5px 5px;
 }
 
 .product-title{
-  font-size:15px;
-  font-weight:800;
+  font-size:16px;
+  font-weight:900;
   margin-bottom:9px;
 }
 
 .rating{
-  font-size:12px;
   color:#f59e0b;
+  font-size:13px;
 }
 
 .price{
-  margin-top:13px;
+  margin-top:15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:8px;
 }
 
 .price strong{
-  font-size:16px;
+  font-size:15px;
 }
 
 .add{
-  width:38px;
-  height:38px;
-  border-radius:13px;
+  width:42px;
+  height:42px;
+  border-radius:14px;
   background:#edf4ff;
   color:var(--blue);
-  font-size:20px;
-  font-weight:bold;
+  font-size:23px;
+  font-weight:900;
+  transition:.2s;
+}
+
+.add:hover{
+  background:var(--blue);
+  color:white;
+  transform:scale(1.05);
 }
 
 /* AI */
 
 .ai-box{
-  margin-top:55px;
-  border-radius:28px;
-  padding:30px;
-  background:linear-gradient(135deg,#101828,#1e293b);
+  margin-top:65px;
+  border-radius:32px;
+  padding:40px;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(37,99,235,.25),transparent 35%),
+    linear-gradient(135deg,#101828,#172033);
   color:white;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:20px;
+  gap:25px;
   overflow:hidden;
   position:relative;
-}
-
-.ai-box:after{
-  content:"";
-  position:absolute;
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  background:#2563eb;
-  opacity:.15;
-  left:-50px;
-  top:-80px;
 }
 
 .ai-content{
@@ -388,14 +445,14 @@ header{
 }
 
 .ai-content h2{
-  font-size:27px;
-  margin-bottom:9px;
+  font-size:31px;
+  margin-bottom:12px;
 }
 
 .ai-content p{
   color:#cbd5e1;
-  line-height:1.8;
-  font-size:14px;
+  line-height:1.9;
+  font-size:15px;
 }
 
 .ai-btn{
@@ -403,41 +460,116 @@ header{
   z-index:2;
   background:white;
   color:var(--dark);
-  padding:13px 20px;
-  border-radius:14px;
-  font-weight:800;
+  padding:15px 23px;
+  border-radius:17px;
+  font-weight:900;
+  white-space:nowrap;
+  transition:.25s;
+}
+
+.ai-btn:hover{
+  transform:translateY(-3px);
 }
 
 /* FOOTER */
 
 footer{
-  margin-top:65px;
-  padding:35px 0;
+  margin-top:75px;
+  padding:38px 0;
   border-top:1px solid var(--border);
   color:#98a2b3;
   text-align:center;
   font-size:13px;
 }
 
-/* AI FLOAT */
+/* FLOAT AI */
 
 .ai-float{
   position:fixed;
-  left:20px;
+  left:22px;
   bottom:22px;
-  width:60px;
-  height:60px;
-  border-radius:20px;
+  width:64px;
+  height:64px;
+  border-radius:22px;
   background:var(--dark);
   color:white;
   font-size:25px;
-  box-shadow:0 15px 35px rgba(16,24,40,.25);
-  z-index:200;
+  box-shadow:0 18px 40px rgba(16,24,40,.25);
+  z-index:900;
   transition:.25s;
 }
 
 .ai-float:hover{
-  transform:translateY(-5px) rotate(3deg);
+  transform:translateY(-5px) rotate(4deg);
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(16,24,40,.35);
+  backdrop-filter:blur(10px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:2000;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-card{
+  width:min(470px,100%);
+  background:white;
+  border-radius:30px;
+  padding:28px;
+  box-shadow:0 30px 100px rgba(0,0,0,.2);
+}
+
+.modal-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.modal-top h3{
+  font-size:23px;
+}
+
+.close{
+  width:38px;
+  height:38px;
+  border-radius:13px;
+  background:#f3f5f8;
+  font-size:18px;
+}
+
+.ai-input{
+  width:100%;
+  height:52px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:0 16px;
+  outline:none;
+  margin-bottom:12px;
+}
+
+.ai-input:focus{
+  border-color:#a9c8ff;
+  box-shadow:0 0 0 4px #edf4ff;
+}
+
+.ai-send{
+  width:100%;
+  height:50px;
+  border-radius:16px;
+  background:var(--dark);
+  color:white;
+  font-weight:800;
 }
 
 /* TOAST */
@@ -450,11 +582,11 @@ footer{
   background:#101828;
   color:white;
   padding:13px 20px;
-  border-radius:14px;
+  border-radius:15px;
   opacity:0;
   pointer-events:none;
   transition:.3s;
-  z-index:300;
+  z-index:3000;
   font-size:14px;
 }
 
@@ -468,14 +600,13 @@ footer{
 @media(max-width:800px){
 
   .nav{
-    height:auto;
-    padding:13px 0;
+    padding:12px 0;
     flex-wrap:wrap;
     gap:10px;
   }
 
   .logo{
-    font-size:24px;
+    font-size:25px;
   }
 
   .search{
@@ -485,28 +616,57 @@ footer{
 
   .hero{
     min-height:500px;
-    padding:30px 22px;
+    padding:32px 23px;
     align-items:flex-start;
+    border-radius:31px;
   }
 
   .hero h1{
-    font-size:43px;
-    letter-spacing:-2px;
+    font-size:45px;
+    letter-spacing:-2.5px;
   }
 
   .hero p{
     font-size:15px;
   }
 
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .primary,
+  .secondary{
+    width:100%;
+  }
+
   .hero-orb{
-    width:230px;
-    height:230px;
-    left:-70px;
-    bottom:-70px;
+    width:250px;
+    height:250px;
+    left:-75px;
+    bottom:-80px;
+  }
+
+  .section{
+    margin-top:48px;
+  }
+
+  .section-head h2{
+    font-size:25px;
   }
 
   .categories{
     grid-template-columns:repeat(3,1fr);
+    gap:10px;
+  }
+
+  .category{
+    padding:18px 5px;
+  }
+
+  .category .icon{
+    width:50px;
+    height:50px;
+    font-size:24px;
   }
 
   .products{
@@ -514,344 +674,679 @@ footer{
     gap:11px;
   }
 
+  .product{
+    border-radius:23px;
+    padding:9px;
+  }
+
   .product-image{
-    height:165px;
-    font-size:62px;
+    height:175px;
+  }
+
+  .product-title{
+    font-size:14px;
+  }
+
+  .price{
+    align-items:flex-end;
+  }
+
+  .price strong{
+    font-size:13px;
+  }
+
+  .add{
+    width:38px;
+    height:38px;
   }
 
   .ai-box{
     display:block;
-    padding:25px;
+    padding:28px;
+  }
+
+  .ai-content h2{
+    font-size:26px;
   }
 
   .ai-btn{
-    margin-top:20px;
+    margin-top:22px;
+    width:100%;
   }
 
-  .section{
-    margin-top:40px;
-  }
 }
 
 @media(max-width:390px){
 
-  .categories{
-    gap:8px;
-  }
-
-  .category{
-    padding:17px 5px;
-  }
-
   .hero h1{
-    font-size:38px;
+    font-size:39px;
   }
 
   .products{
     gap:8px;
   }
+
+  .product-image{
+    height:155px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="container nav">
 
-    <div class="logo">Nex<span>ora</span></div>
+<div class="container nav">
 
-    <div class="search">
-      <div class="search-icon">⌕</div>
-      <input
-        id="search"
-        type="text"
-        placeholder="چی می‌خوای پیدا کنی؟"
-        oninput="searchProducts()"
-      >
-    </div>
+  <div class="logo">
+    Nex<span>ora</span>
+  </div>
 
-    <div class="nav-btns">
-      <button class="nav-btn" onclick="showToast('❤️ به علاقه‌مندی‌ها اضافه شد')">♡</button>
-      <button class="nav-btn" onclick="showToast('🛒 سبد خرید شما خالی است')">🛒</button>
-    </div>
+  <div class="search">
+
+    <div class="search-icon">⌕</div>
+
+    <input
+      id="search"
+      type="text"
+      placeholder="چی می‌خوای پیدا کنی؟"
+      oninput="searchProducts()"
+    >
 
   </div>
+
+  <div class="nav-btns">
+
+    <button
+      class="nav-btn"
+      onclick="showToast('❤️ علاقه‌مندی‌ها')">
+      ♡
+    </button>
+
+    <button
+      class="nav-btn"
+      onclick="showToast('🛒 سبد خرید')">
+
+      🛒
+
+      <span
+        class="cart-count"
+        id="cartCount">
+        0
+      </span>
+
+    </button>
+
+  </div>
+
+</div>
+
 </header>
+
 
 <main class="container">
 
+
 <section class="hero">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <div class="badge">✦ خرید هوشمند با Nexora</div>
+<div class="badge">
+✦ خرید هوشمند با Nexora
+</div>
 
-    <h1>
-      آینده‌ی خرید<br>
-      <span>اینجاست.</span>
-    </h1>
+<h1>
+آینده‌ی خرید<br>
+<span>اینجاست.</span>
+</h1>
 
-    <p>
-      تجربه‌ای سریع، ساده و هوشمند برای پیدا کردن
-      بهترین محصولات با کمک هوش مصنوعی.
-    </p>
+<p>
+تجربه‌ای سریع، ساده و هوشمند برای پیدا کردن
+بهترین محصولات با کمک هوش مصنوعی.
+</p>
 
-    <div class="hero-actions">
-      <button class="primary" onclick="scrollToProducts()">
-        شروع خرید ←
-      </button>
+<div class="hero-actions">
 
-      <button class="secondary" onclick="openAI()">
-        ✨ دستیار هوشمند
-      </button>
-    </div>
+<button
+class="primary"
+onclick="scrollToProducts()">
+شروع خرید ←
+</button>
 
-  </div>
+<button
+class="secondary"
+onclick="openAI()">
+✨ دستیار هوشمند
+</button>
 
-  <div class="hero-orb"></div>
+</div>
+
+</div>
+
+<div class="hero-orb"></div>
 
 </section>
 
 
 <section class="section">
 
-  <div class="section-head">
-    <h2>دسته‌بندی‌ها</h2>
-    <a href="#">مشاهده همه</a>
-  </div>
+<div class="section-head">
 
-  <div class="categories">
+<h2>
+دسته‌بندی‌ها
+</h2>
 
-    <div class="category">
-      <div class="icon">📱</div>
-      <span>موبایل</span>
-    </div>
+<a href="#products">
+مشاهده همه
+</a>
 
-    <div class="category">
-      <div class="icon">💻</div>
-      <span>لپ‌تاپ</span>
-    </div>
+</div>
 
-    <div class="category">
-      <div class="icon">🎧</div>
-      <span>هدفون</span>
-    </div>
 
-    <div class="category">
-      <div class="icon">⌚</div>
-      <span>ساعت هوشمند</span>
-    </div>
+<div class="categories">
 
-    <div class="category">
-      <div class="icon">📷</div>
-      <span>دوربین</span>
-    </div>
+<div class="category">
+<div class="icon">📱</div>
+<span>موبایل</span>
+</div>
 
-    <div class="category">
-      <div class="icon">🎮</div>
-      <span>گیمینگ</span>
-    </div>
+<div class="category">
+<div class="icon">💻</div>
+<span>لپ‌تاپ</span>
+</div>
 
-  </div>
+<div class="category">
+<div class="icon">🎧</div>
+<span>هدفون</span>
+</div>
+
+<div class="category">
+<div class="icon">⌚</div>
+<span>ساعت هوشمند</span>
+</div>
+
+<div class="category">
+<div class="icon">📷</div>
+<span>دوربین</span>
+</div>
+
+<div class="category">
+<div class="icon">🎮</div>
+<span>گیمینگ</span>
+</div>
+
+</div>
 
 </section>
 
 
-<section class="section" id="products-section">
+<section
+class="section"
+id="products-section">
 
-  <div class="section-head">
-    <h2>پیشنهادهای Nexora</h2>
-    <a href="#">محبوب‌ترین‌ها</a>
-  </div>
+<div class="section-head">
 
-  <div class="products" id="products">
+<h2>
+پیشنهادهای Nexora
+</h2>
 
-    <div class="product" data-name="iphone 17 pro">
+<a href="#products">
+محبوب‌ترین‌ها
+</a>
 
-      <div class="product-image">
-        <button class="favorite" onclick="showToast('❤️ به علاقه‌مندی‌ها اضافه شد')">♡</button>
-        📱
-      </div>
-
-      <div class="product-info">
-        <div class="product-title">iPhone 17 Pro</div>
-        <div class="rating">★★★★★ 4.9</div>
-
-        <div class="price">
-          <strong>۱۲۹,۹۰۰,۰۰۰ تومان</strong>
-          <button class="add" onclick="addCart()">+</button>
-        </div>
-      </div>
-
-    </div>
+</div>
 
 
-    <div class="product" data-name="macbook air">
-
-      <div class="product-image">
-        <button class="favorite" onclick="showToast('❤️ به علاقه‌مندی‌ها اضافه شد')">♡</button>
-        💻
-      </div>
-
-      <div class="product-info">
-        <div class="product-title">MacBook Air M4</div>
-        <div class="rating">★★★★★ 4.8</div>
-
-        <div class="price">
-          <strong>۹۸,۵۰۰,۰۰۰ تومان</strong>
-          <button class="add" onclick="addCart()">+</button>
-        </div>
-      </div>
-
-    </div>
+<div
+class="products"
+id="products">
 
 
-    <div class="product" data-name="airpods pro">
+<!-- PRODUCT 1 -->
 
-      <div class="product-image">
-        <button class="favorite" onclick="showToast('❤️ به علاقه‌مندی‌ها اضافه شد')">♡</button>
-        🎧
-      </div>
+<div
+class="product"
+data-name="iphone 17 pro">
 
-      <div class="product-info">
-        <div class="product-title">AirPods Pro</div>
-        <div class="rating">★★★★★ 4.7</div>
+<div class="product-image">
 
-        <div class="price">
-          <strong>۲۴,۸۰۰,۰۰۰ تومان</strong>
-          <button class="add" onclick="addCart()">+</button>
-        </div>
-      </div>
+<button
+class="favorite"
+onclick="favorite(this)">
+♡
+</button>
 
-    </div>
+<img
+src="https://images.unsplash.com/photo-1592286927505-2fd0b2d6d8f5?auto=format&fit=crop&w=700&q=85"
+alt="iPhone">
+
+</div>
+
+<div class="product-info">
+
+<div class="product-title">
+iPhone 17 Pro
+</div>
+
+<div class="rating">
+★★★★★ 4.9
+</div>
+
+<div class="price">
+
+<strong>
+۱۲۹,۹۰۰,۰۰۰ تومان
+</strong>
+
+<button
+class="add"
+onclick="addCart()">
++
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 
-    <div class="product" data-name="apple watch">
+<!-- PRODUCT 2 -->
 
-      <div class="product-image">
-        <button class="favorite" onclick="showToast('❤️ به علاقه‌مندی‌ها اضافه شد')">♡</button>
-        ⌚
-      </div>
+<div
+class="product"
+data-name="macbook air">
 
-      <div class="product-info">
-        <div class="product-title">Apple Watch Ultra</div>
-        <div class="rating">★★★★★ 4.9</div>
+<div class="product-image">
 
-        <div class="price">
-          <strong>۵۵,۰۰۰,۰۰۰ تومان</strong>
-          <button class="add" onclick="addCart()">+</button>
-        </div>
-      </div>
+<button
+class="favorite"
+onclick="favorite(this)">
+♡
+</button>
 
-    </div>
+<img
+src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=85"
+alt="MacBook">
 
-  </div>
+</div>
+
+<div class="product-info">
+
+<div class="product-title">
+MacBook Air M4
+</div>
+
+<div class="rating">
+★★★★★ 4.8
+</div>
+
+<div class="price">
+
+<strong>
+۹۸,۵۰۰,۰۰۰ تومان
+</strong>
+
+<button
+class="add"
+onclick="addCart()">
++
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div
+class="product"
+data-name="airpods pro">
+
+<div class="product-image">
+
+<button
+class="favorite"
+onclick="favorite(this)">
+♡
+</button>
+
+<img
+src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=85"
+alt="AirPods">
+
+</div>
+
+<div class="product-info">
+
+<div class="product-title">
+AirPods Pro
+</div>
+
+<div class="rating">
+★★★★★ 4.7
+</div>
+
+<div class="price">
+
+<strong>
+۲۴,۸۰۰,۰۰۰ تومان
+</strong>
+
+<button
+class="add"
+onclick="addCart()">
++
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div
+class="product"
+data-name="apple watch">
+
+<div class="product-image">
+
+<button
+class="favorite"
+onclick="favorite(this)">
+♡
+</button>
+
+<img
+src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85"
+alt="Apple Watch">
+
+</div>
+
+<div class="product-info">
+
+<div class="product-title">
+Apple Watch Ultra
+</div>
+
+<div class="rating">
+★★★★★ 4.9
+</div>
+
+<div class="price">
+
+<strong>
+۵۵,۰۰۰,۰۰۰ تومان
+</strong>
+
+<button
+class="add"
+onclick="addCart()">
++
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <section class="ai-box">
 
-  <div class="ai-content">
-    <h2>🤖 دستیار خرید Nexora</h2>
-    <p>
-      فقط چیزی که می‌خوای رو بگو؛
-      Nexora بهترین گزینه‌ها رو برات پیدا می‌کنه.
-    </p>
-  </div>
+<div class="ai-content">
 
-  <button class="ai-btn" onclick="openAI()">
-    شروع گفتگو ✦
-  </button>
+<h2>
+🤖 دستیار خرید Nexora
+</h2>
+
+<p>
+فقط چیزی که می‌خوای رو بگو؛
+Nexora بهترین گزینه‌ها رو برات پیدا می‌کنه.
+</p>
+
+</div>
+
+<button
+class="ai-btn"
+onclick="openAI()">
+شروع گفتگو ✦
+</button>
 
 </section>
 
 
 <footer>
-  © 2026 Nexora — تجربه‌ای متفاوت برای خرید آنلاین
+
+© 2026 Nexora — تجربه‌ای متفاوت برای خرید آنلاین
+
 </footer>
 
 </main>
 
 
-<button class="ai-float" onclick="openAI()">✦</button>
+<button
+class="ai-float"
+onclick="openAI()">
+✦
+</button>
 
-<div class="toast" id="toast"></div>
+
+<div
+class="toast"
+id="toast">
+</div>
+
+
+<!-- AI MODAL -->
+
+<div
+class="modal"
+id="aiModal">
+
+<div class="modal-card">
+
+<div class="modal-top">
+
+<h3>
+🤖 دستیار Nexora
+</h3>
+
+<button
+class="close"
+onclick="closeAI()">
+×
+</button>
+
+</div>
+
+<p style="color:#667085;line-height:1.8;margin-bottom:18px">
+چی می‌خوای بخری؟ بودجه و کاربردت رو هم بگو تا بهترین گزینه رو پیدا کنیم.
+</p>
+
+<input
+class="ai-input"
+id="aiInput"
+placeholder="مثلاً لپ‌تاپ برای دانشگاه تا ۵۰ میلیون">
+
+<button
+class="ai-send"
+onclick="sendAI()">
+پیدا کن ✦
+</button>
+
+</div>
+
+</div>
 
 
 <script>
 
+let cart=0;
+
+
 function showToast(message){
 
-  const toast=document.getElementById("toast");
+const toast=document.getElementById("toast");
 
-  toast.textContent=message;
-  toast.classList.add("show");
+toast.textContent=message;
 
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2200);
+toast.classList.add("show");
+
+setTimeout(()=>{
+toast.classList.remove("show");
+},2200);
+
 }
 
 
 function addCart(){
-  showToast("🛒 محصول به سبد خرید اضافه شد");
+
+cart++;
+
+const counter=document.getElementById("cartCount");
+
+counter.textContent=cart;
+
+counter.style.display="flex";
+
+showToast("🛒 محصول به سبد خرید اضافه شد");
+
+}
+
+
+function favorite(button){
+
+button.classList.toggle("active");
+
+if(button.classList.contains("active")){
+
+button.textContent="♥";
+
+showToast("❤️ به علاقه‌مندی‌ها اضافه شد");
+
+}else{
+
+button.textContent="♡";
+
+}
+
 }
 
 
 function openAI(){
 
-  const answer=prompt(
-    "🤖 دستیار Nexora\n\nچی می‌خوای بخری؟ مثلا: «یه لپ‌تاپ خوب برای دانشگاه»"
-  );
+document
+.getElementById("aiModal")
+.classList.add("show");
 
-  if(answer){
-    showToast("✨ Nexora داره پیشنهاد مناسب برایت پیدا می‌کنه...");
-  }
+setTimeout(()=>{
+document.getElementById("aiInput").focus();
+},200);
+
+}
+
+
+function closeAI(){
+
+document
+.getElementById("aiModal")
+.classList.remove("show");
+
+}
+
+
+function sendAI(){
+
+const input=
+document
+.getElementById("aiInput")
+.value
+.trim();
+
+if(!input){
+
+showToast("اول بگو دنبال چی می‌گردی 🤖");
+
+return;
+
+}
+
+closeAI();
+
+showToast("✨ Nexora در حال پیدا کردن بهترین گزینه‌هاست...");
+
 }
 
 
 function scrollToProducts(){
 
-  document
-    .getElementById("products-section")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+document
+.getElementById("products-section")
+.scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
 
 function searchProducts(){
 
-  const query=
-    document
-      .getElementById("search")
-      .value
-      .toLowerCase()
-      .trim();
+const query=
+document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
 
-  const products=
-    document.querySelectorAll(".product");
+const products=
+document.querySelectorAll(".product");
 
-  products.forEach(product=>{
+products.forEach(product=>{
 
-    const name=
-      product
-        .dataset
-        .name
-        .toLowerCase();
+const name=
+product
+.dataset
+.name
+.toLowerCase();
 
-    if(name.includes(query)){
-      product.style.display="";
-    }else{
-      product.style.display="none";
-    }
+if(name.includes(query)){
 
-  });
+product.style.display="";
+
+}else{
+
+product.style.display="none";
 
 }
+
+});
+
+}
+
+
+document
+.getElementById("aiModal")
+.addEventListener("click",function(e){
+
+if(e.target===this){
+closeAI();
+}
+
+});
 
 </script>
 
